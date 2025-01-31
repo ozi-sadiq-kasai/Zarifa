@@ -43,10 +43,13 @@ const Navbar = () => {
 };
 
 const Nav = styled.nav`
-  border: 1px solid red;
+  background-color:white;
   padding: 0 2rem;
   position:fixed;
   width:100%;
+  top:0;
+  left:0;
+  z-index:1000;
 `;
 
 const Content = styled.div`
