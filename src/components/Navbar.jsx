@@ -5,6 +5,8 @@ import { CgProfile } from 'react-icons/cg';
 import { BsMinecart } from 'react-icons/bs';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useState } from 'react';
+import { IoIosClose } from 'react-icons/io';
+import { motion } from 'motion/react';
 
 // Data structures for dynamic rendering
 const navLinks = [
@@ -54,8 +56,24 @@ const Navbar = () => {
         </Content>
       </Nav>
 
-     {/* Sidebar */}
-     <Sidebar showMenu={showMenu}>
+      {/* Sidebar */}
+      <Sidebar showMenu={showMenu}>
+        <motion.div
+          onClick={handleMenu}
+          initial={{ rotate: 0 }}
+          // animate={{ rotate: showMenu ? 360 : 0 }}
+          animate={{ rotate:  360 }}
+          // transition={{ duration: 0.3, ease: 'easeInOut' }}
+          // whileHover={{ scale: 1.2, rotate: 90 }}
+           style={{
+             cursor: 'pointer',
+            position: 'absolute',
+            top: '1rem',
+            right: '1rem',
+         }}
+          >
+          <IoIosClose size={30} />
+        </motion.div>
         <SidebarContent>
           {navLinks.map(({ to, text }) => (
             <SidebarLink key={to} to={to}>
@@ -66,6 +84,7 @@ const Navbar = () => {
       </Sidebar>
 
       {/* Overlay */}
+      {/* <Overlay/>*/}
       {showMenu && <Overlay onClick={handleMenu} />}
     </>
   );
@@ -77,7 +96,6 @@ const Nav = styled.nav`
   padding: 0 2rem;
   position: fixed;
   width: 100%;
-  top: 0;
   left: 0;
   z-index: 1000;
 `;
@@ -139,23 +157,27 @@ const IconWrapper = styled.div`
   flex: 1.2;
   display: flex;
   justify-content: space-evenly;
-
   a {
     color: var(--grey-400);
   }
 `;
 
 const Sidebar = styled.div`
-  position:fixed;
-  top:0;
+  position: fixed;
+  top: 0;
   left: ${({ showMenu }) => (showMenu ? '0' : '-100%')};
   width: 250px;
   height: 100%;
   background-color: white;
   z-index: 1001;
-  transition: left 0.3s ease-in-out;
+  transition: left 0.7s ease-out;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-`
+`;
+// const CloseIcon = styled(IoIosClose)`
+//   position: absolute;
+//   right: 0;
+//   cursor: pointer;
+// `;
 
 const SidebarContent = styled.div`
   padding: 2rem;
@@ -178,13 +200,11 @@ const SidebarLink = styled(Link)`
 const Overlay = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0px;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  cursor: pointer;
+  z-index: 999;
 `;
-
 
 export default Navbar;
