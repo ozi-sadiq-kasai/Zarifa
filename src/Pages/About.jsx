@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div style={{ paddingTop: '8rem' }}>
+    <div style={{ paddingTop: '10rem' }}>
       About Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
       voluptas consequuntur sunt nemo commodi, nesciunt magnam asperiores
       mollitia minima labore recusandae necessitatibus qui dolor tempore

@@ -83,7 +83,6 @@ const Navbar = () => {
         </SidebarContent>
       </Sidebar>
 
-      {/* Overlay */}
       {/* <Overlay/>*/}
       {showMenu && <Overlay onClick={handleMenu} />}
     </>
@@ -173,11 +172,6 @@ const Sidebar = styled.div`
   transition: left 0.7s ease-out;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 `;
-// const CloseIcon = styled(IoIosClose)`
-//   position: absolute;
-//   right: 0;
-//   cursor: pointer;
-// `;
 
 const SidebarContent = styled.div`
   padding: 2rem;
