@@ -2,13 +2,15 @@ import { IoIosArrowRoundForward } from 'react-icons/io';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Pronounce from '../components/Pronounce';
+import FiveKeys from '../components/FiveKeys';
 
 const Home = () => {
   const [headerImg, setHeaderImg] = useState();
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products/15")
+      .get('https://fakestoreapi.com/products/15')
       .then((response) => {
         setHeaderImg(response.data.image);
       })
@@ -18,23 +20,27 @@ const Home = () => {
   }, []);
 
   return (
-    <Wrapper>
-      <Info>
-        <p>INTRODUCING ZARIFA</p>
-        <h2>Zarifa means &apos;Elegant&apos; in Arabic Language.</h2>
-        <p>sustainable clothing pieces helps protect our globe</p>
-        <button className='btn'>
-          SHOP NOW <IoIosArrowRoundForward />
-        </button>
-      </Info>
-      <HeaderImg>
-        {headerImg ? (
-          <img src={headerImg} alt='img' className='img' />
-        ) : (
-          <p>Loading image...</p>
-        )}
-      </HeaderImg>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Info>
+          <p>INTRODUCING ZARIFA</p>
+          <h2>Zarifa means &apos;Elegant&apos; in Arabic Language.</h2>
+          <p>sustainable clothing pieces helps protect our globe</p>
+          <button className='btn'>
+            SHOP NOW <IoIosArrowRoundForward />
+          </button>
+        </Info>
+        <HeaderImg>
+          {headerImg ? (
+            <img src={headerImg} alt='img' className='img' />
+          ) : (
+            <p>Loading image...</p>
+          )}
+        </HeaderImg>
+      </Wrapper>
+      <Pronounce />
+      <FiveKeys />
+    </>
   );
 };
 
@@ -45,15 +51,15 @@ const Wrapper = styled.div`
   gap: 1rem;
   @media ${({ theme }) => theme.device.max.mobile} {
     flex-direction: column;
-    padding:8rem 1rem;
+    padding: 8rem 1rem;
   }
 `;
 
 const Info = styled.div`
   flex: 2;
   button {
-    padding: 12px 24px;
-    border-radius: 15px;
+    padding: 12px 27px;
+    border-radius: 18px;
   }
 `;
 const HeaderImg = styled.div`
