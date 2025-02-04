@@ -19,9 +19,15 @@ const Pronounce = () => {
 const Wrapper = styled.div`
 padding:0 5rem;
 background-color:white;
+@media ${({ theme }) => theme.device.max.mobile} {
+    padding:0 1rem;
+  }
 `
 const Info = styled.p`
 max-width:65%;
-
+@media ${({ theme }) => theme.device.max.mobile} {
+  max-width:100%;
+  text-align:center;
+  }
 `
 export default Pronounce;
