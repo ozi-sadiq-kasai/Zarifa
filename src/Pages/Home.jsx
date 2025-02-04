@@ -51,15 +51,18 @@ const Wrapper = styled.div`
   gap: 1rem;
   @media ${({ theme }) => theme.device.max.mobile} {
     flex-direction: column;
-    padding: 8rem 1rem;
+    padding: 8rem 1rem 1rem 1rem;
   }
 `;
 
 const Info = styled.div`
   flex: 2;
   button {
-    padding: 12px 27px;
+    padding: 0.75rem 1.6875rem;
     border-radius: 18px;
+    @media ${({ theme }) => theme.device.max.mobile} {
+    padding: 0.5rem  0.8rem;
+  }
   }
 `;
 const HeaderImg = styled.div`
