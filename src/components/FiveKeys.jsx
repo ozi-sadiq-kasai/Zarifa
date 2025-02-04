@@ -1,6 +1,9 @@
-
 import styled from 'styled-components';
-import { PiRecycleThin, PiHandshakeThin, PiPersonSimpleRunLight } from 'react-icons/pi';
+import {
+  PiRecycleThin,
+  PiHandshakeThin,
+  PiPersonSimpleRunLight,
+} from 'react-icons/pi';
 import { MdOutlineWaterDrop } from 'react-icons/md';
 import { GiUbisoftSun } from 'react-icons/gi';
 
@@ -31,6 +34,13 @@ const Wrapper = styled.ul`
   gap: 1rem;
   background-color: white;
   padding: 1rem 0;
+  @media ${({ theme }) => theme.device.mobile} {
+    display:grid;
+    grid-template-columns: repeat(3,auto);
+    gap:1rem;
+    justify-content:center;
+    aligh-items:center;
+  }
 `;
 
 const List = styled.li`
@@ -46,14 +56,14 @@ const List = styled.li`
   text-align: center;
 
   span {
-    position:absolute;
-    bottom:-0.4rem;
+    position: absolute;
+    bottom: -0.4rem;
     margin-bottom: 0.5rem;
   }
 `;
 
 const Text = styled.p`
-position:absolute;
+  position: absolute;
   font-size: 0.7rem;
   font-weight: bold;
 `;
