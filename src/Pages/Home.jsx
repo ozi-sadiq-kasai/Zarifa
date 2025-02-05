@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Pronounce from '../components/Pronounce';
 import FiveKeys from '../components/FiveKeys';
+import Sliders from '../components/Sliders';
 
 const Home = () => {
   const [headerImg, setHeaderImg] = useState();
@@ -40,6 +41,7 @@ const Home = () => {
       </Wrapper>
       <Pronounce />
       <FiveKeys />
+      <Sliders/>
     </>
   );
 };

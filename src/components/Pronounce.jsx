@@ -25,6 +25,8 @@ background-color:white;
 `
 const Info = styled.p`
 max-width:65%;
+margin-bottom:0;
+padding-bottom:0.8rem;
 @media ${({ theme }) => theme.device.max.mobile} {
   max-width:100%;
   text-align:center;
