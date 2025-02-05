@@ -34,7 +34,7 @@ const Wrapper = styled.ul`
   gap: 1rem;
   background-color: white;
   padding: 1rem 0;
-  @media ${({ theme }) => theme.device.mobile} {
+  @media ${({ theme }) => theme.device.max.mobile} {
     display:grid;
     grid-template-columns: repeat(3,auto);
     gap:1rem;
