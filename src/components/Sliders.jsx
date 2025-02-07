@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+// import { motion } from 'motion/react';
 
 const Sliders = () => {
   const [sliders, setSliders] = useState([]);
@@ -27,7 +28,7 @@ const Sliders = () => {
   if (error) return <div>Error loading images</div>;
 
   return (
-    <Wrapper>
+    <Wrapper >
       {sliders.map((product) => (
         <Content key={product.id}>
           <img
@@ -35,22 +36,13 @@ const Sliders = () => {
             alt={product.title}
             style={{ width: '150px', height: 'auto' }}
           />
-          <div
-            style={{
-              margin: '0 auto',
-              border: '1px solid yellow',
-              width: '70%',
-            }}>
-            <p
-              style={{
-                width: '100%',
-                textAlign: 'center',
-                border: '1px solid black',
-              }}>
+          <p>Add To Cart</p>
+          <InfoWrapper>
+            <Paragraph>
               {product.title}
-            </p>
-            <p style={{ textAlign: 'center' }}>${product.price}</p>
-          </div>
+              <span>${product.price}</span>
+            </Paragraph>
+          </InfoWrapper>
         </Content>
       ))}
     </Wrapper>
@@ -71,7 +63,33 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex:1;
+  flex: 1;
+  p {
+    display: none;
+  }
+  img:hover {
+    scale: 1.1;
+    transition: ease-in;
+    cursor: pointer;
+    p {
+      display: block;
+    }
+  }
+`;
+
+const InfoWrapper = styled.div`
+  margin: 1rem auto 0 auto;
+  width: 80%;
+`;
+const Paragraph = styled.div`
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  span {
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+  }
 `;
 
 export default Sliders;
