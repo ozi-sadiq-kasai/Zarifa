@@ -6,6 +6,7 @@ import {
 } from 'react-icons/pi';
 import { MdOutlineWaterDrop } from 'react-icons/md';
 import { GiUbisoftSun } from 'react-icons/gi';
+import { motion } from "framer-motion";
 
 const FiveKeys = () => {
   const items = [
@@ -16,10 +17,17 @@ const FiveKeys = () => {
     { text: 'Comfort', icon: <GiUbisoftSun size={20} /> },
   ];
 
+
   return (
-    <Wrapper>
+    <Wrapper
+    variants={containerVariants} // Add container variants
+      initial="hidden"
+      animate="visible"
+    >
       {items.map((item, index) => (
-        <List key={index}>
+        <List key={index}
+        variants={itemVariants}
+        >
           <Text>{item.text}</Text>
           <span>{item.icon}</span>
         </List>
@@ -28,7 +36,32 @@ const FiveKeys = () => {
   );
 };
 
-const Wrapper = styled.ul`
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.8,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.5,
+      duration: 0.5,
+    },
+  },
+};
+
+const Wrapper = styled(motion.ul)`
   display: flex;
   justify-content: space-around;
   gap: 1rem;
@@ -43,7 +76,7 @@ const Wrapper = styled.ul`
   }
 `;
 
-const List = styled.li`
+const List = styled(motion.li)`
   position: relative;
   border: 1px solid var(--grey-400);
   width: 5rem;

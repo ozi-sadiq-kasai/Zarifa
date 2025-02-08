@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-// import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 
 const Sliders = () => {
   const [sliders, setSliders] = useState([]);
@@ -28,7 +28,7 @@ const Sliders = () => {
   if (error) return <div>Error loading images</div>;
 
   return (
-    <Wrapper >
+    <Wrapper>
       {sliders.map((product) => (
         <Content key={product.id}>
           <img
@@ -49,12 +49,17 @@ const Sliders = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
   width: 100%;
   padding-top: 1rem;
+  @media ${({ theme }) => theme.device.max.mobile} {
+    width:70%;
+    flex-direction:column;
+    margin: 0 auto;
+  }
 `;
 
 const Content = styled.div`
