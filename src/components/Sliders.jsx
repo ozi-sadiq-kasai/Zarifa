@@ -34,7 +34,7 @@ const Sliders = () => {
           <img
             src={product.image}
             alt={product.title}
-            style={{ width: '150px', height: 'auto' }}
+            style={{ width: '150px', height: 'auto' ,marginTop:'1.2rem'}}
           />
           <p>Add To Cart</p>
           <InfoWrapper>
@@ -54,7 +54,7 @@ const Wrapper = styled(motion.div)`
   gap: 1rem;
   flex-wrap: nowrap;
   width: 100%;
-  padding-top: 1rem;
+  padding: 1rem;
   @media ${({ theme }) => theme.device.max.mobile} {
     width:70%;
     flex-direction:column;
