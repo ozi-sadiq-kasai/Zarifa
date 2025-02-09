@@ -1,12 +1,13 @@
 import { LuFacebook } from "react-icons/lu";
 import { LuInstagram } from "react-icons/lu";
+import styled from 'styled-components'
 
 const Footer = () => {
   return (
-    <footer style={{backgroundColor:'black'}}>
+    <Wrapper >
       <h2>Zarifa</h2>
-      <ul style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <li>
+      <Content>
+        <First>
           <h3>Newsletter</h3>
           <p>Leave your email address to receive news and deals from Zarifa!</p>
           <div style={{display:'flex',flexDirection:'column'}}>
@@ -20,7 +21,7 @@ const Footer = () => {
               Join
             </button>
           </div>
-        </li>
+        </First>
         <li>
           <h3>Zarifa</h3>
           <ul>
@@ -47,9 +48,16 @@ const Footer = () => {
             <span><LuInstagram/></span>
           </div>
         </li>
-      </ul>
-    </footer>
+      </Content>
+    </Wrapper>
   );
 };
-
+const Wrapper = styled.footer`
+ background-color:black;
+`;
+const Content = styled.ul`
+display:flex;
+justify-content:space-around;
+`
+const First = styled.li``
 export default Footer;
