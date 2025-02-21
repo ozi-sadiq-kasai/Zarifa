@@ -13,6 +13,7 @@ const Sliders = () => {
       .get(
         'https://fakestoreapi.com/products/category/women%27s%20clothing?limit=5'
       )
+      
       .then((response) => {
         setSliders(response.data);
         setLoading(false);
